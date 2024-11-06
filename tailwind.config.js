@@ -16,6 +16,9 @@ module.exports = {
         ternary: "#707070",
         background: "#F0F1F1",
       },
+      height: {
+        custom: 'calc(100vh - 100px)',
+      }
     },
   },
   plugins: [],
