@@ -12,12 +12,12 @@ const TopNavbar = () => {
                                 <option value="DE">German</option>
                             </select>
                         </form>
-                        <p className="text-xs text-secondary">Help Center</p>
-                        <p className="text-xs text-secondary">Helpline: 0964781656</p>
+                        <p className="text-xs text-secondary hidden md:block">Help Center</p>
+                        <p className="text-xs text-secondary hidden md:block">Helpline: 0964781656</p>
                     </div>
                     <div className="flex items-center gap-8">
-                        <p className="text-xs text-secondary">Become a Seller</p>
-                        <p className="text-xs text-secondary">Order Track</p>
+                        <p className="text-xs text-secondary hidden md:block">Become a Seller</p>
+                        <p className="text-xs text-secondary hidden md:block">Order Track</p>
                         <button className="text-xs text-primary">Sign up / Login</button>
                     </div>
                 </div>
