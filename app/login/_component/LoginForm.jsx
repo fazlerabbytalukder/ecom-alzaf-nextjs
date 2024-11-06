@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const LoginForm = () => {
     return (
-        <form className="grid grid-cols-2 gap-11">
+        <form className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-11">
             <div>
                 <h3 className="text-xl font-medium text-black mb-[18px]">Welcome to Alzaf.com</h3>
                 <div className="inputs space-y-[11px]">
@@ -40,7 +40,7 @@ const LoginForm = () => {
                 </div>
             </div>
             <div>
-                <h3 className="text-xl font-medium text-primary mb-[18px]">Login</h3>
+                <h3 className="text-xl font-medium text-primary mb-0 md:mb-[18px] hidden md:block">Login</h3>
                 <div className="space-y-[5px]">
                     <div>
                         <div className="flex items-center gap-[5px]">
