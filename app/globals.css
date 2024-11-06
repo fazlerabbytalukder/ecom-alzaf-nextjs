@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.icon-button {
+    @apply bg-[#F5F5F5] w-[32px] h-[32px] flex items-center justify-center rounded-lg
+}

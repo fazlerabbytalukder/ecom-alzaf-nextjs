@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 const TopNavbar = () => {
     return (
@@ -18,7 +19,7 @@ const TopNavbar = () => {
                     <div className="flex items-center gap-8">
                         <p className="text-xs text-secondary hidden md:block">Become a Seller</p>
                         <p className="text-xs text-secondary hidden md:block">Order Track</p>
-                        <button className="text-xs text-primary">Sign up / Login</button>
+                        <Link href="/login" className="text-xs text-primary">Sign up / Login</Link>
                     </div>
                 </div>
             </div>
