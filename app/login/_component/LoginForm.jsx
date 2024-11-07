@@ -40,6 +40,7 @@ const LoginForm = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-11">
+            {/* left side forms  */}
             <div>
                 <h3 className="text-xl font-medium text-black mb-[18px]">Welcome to Alzaf.com</h3>
                 <div className="inputs space-y-[11px]">
@@ -95,8 +96,48 @@ const LoginForm = () => {
                     </div>
                 </div>
             </div>
+            {/* right side forms  */}
             <div>
-                <div className="flex items-start mb-6">
+                <h3 className="text-xl font-medium text-primary mb-[18px] md:block hidden">Login</h3>
+                <div className="space-y-[5px]">
+                    <div>
+                        <div className="flex items-center gap-[5px]">
+                            <div>
+                                <label for="birth" className="block mb-[6px] text-sm font-normal text-[#434343]">Birthday
+                                </label>
+                                <div className="flex items-center gap-[5px]">
+                                    <select id="month" className="bg-transparent border border-[#9C9C9C] text-gray-900 text-sm rounded-[2px] focus:ring-primary focus:border-primary w-full px-[10px] py-[8px]">
+                                        <option defaultValue>Month</option>
+                                        <option value="january">january</option>
+                                        <option value="february">february</option>
+                                    </select>
+                                    <select id="day" className="bg-transparent border border-[#9C9C9C] text-gray-900 text-sm rounded-[2px] focus:ring-primary focus:border-primary w-full px-[10px] py-[8px]">
+                                        <option defaultValue>Day</option>
+                                        <option value="january">01</option>
+                                        <option value="february">12</option>
+                                    </select>
+                                    <select id="year" className="bg-transparent border border-[#9C9C9C] text-gray-900 text-sm rounded-[2px] focus:ring-primary focus:border-primary w-full px-[10px] py-[8px]">
+                                        <option defaultValue>Year</option>
+                                        <option value="january">1998</option>
+                                        <option value="february">1999</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <label for="gender" className="block mb-[6px] text-sm font-normal text-[#434343]">Gender
+                                    </label>
+                                    <select id="month" className="bg-transparent border border-[#9C9C9C] text-gray-900 text-sm rounded-[2px] focus:ring-primary focus:border-primary w-full px-[10px] py-[8px]">
+                                        <option defaultValue>Gender</option>
+                                        <option value="january">Male</option>
+                                        <option value="february">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="flex items-start mb-3 mt-2">
                     <input
                         id="remember"
                         type="checkbox"
