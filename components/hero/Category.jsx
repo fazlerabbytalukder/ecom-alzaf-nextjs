@@ -63,10 +63,7 @@ const Category = () => {
                             </div>
 
                             {activeCategory === category.id && category?.childrens && (
-                                <>
-                                    <DynamicLabelLink leftOffset={230} />
-                                    {/* <DynamicLabelLink leftOffset={460} /> */}
-                                </>
+                                <DynamicLabelLink leftOffset={230} childrens={category?.childrens} />
                             )}
                         </div>
                     ))}
