@@ -4,6 +4,7 @@ import facebook from "@/app/images/icons/facebook.svg";
 import google from "@/app/images/icons/google.svg";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 
@@ -24,6 +25,21 @@ const schema = yup.object().shape({
     remember: yup.bool().oneOf([true], "You must resolve the error"),
 });
 
+const generateYears = () => {
+    const currentYear = new Date().getFullYear();
+    return Array.from({ length: 100 }, (_, i) => currentYear - i);
+};
+
+const generateDays = (month, year) => {
+    const daysInMonth = new Date(year, month, 0).getDate();
+    return Array.from({ length: daysInMonth }, (_, i) => i + 1);
+};
+
+const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+];
+
 const LoginForm = () => {
     const {
         register,
@@ -32,6 +48,12 @@ const LoginForm = () => {
     } = useForm({
         resolver: yupResolver(schema),
     });
+
+    const [selectedMonth, setSelectedMonth] = useState(1);
+    const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+
+    const days = generateDays(selectedMonth, selectedYear);
+    const years = generateYears();
 
     const onSubmit = (data) => {
         console.log("Form submitted with:", data);
@@ -103,36 +125,52 @@ const LoginForm = () => {
                     <div>
                         <div className="flex items-center gap-[5px]">
                             <div>
-                                <label for="birth" className="block mb-[6px] text-sm font-normal text-[#434343]">Birthday
-                                </label>
+                                <label htmlFor="birth" className="block mb-[6px] text-sm font-normal text-[#434343]">Birthday</label>
                                 <div className="flex items-center gap-[5px]">
-                                    <select id="month" className="bg-transparent border border-[#9C9C9C] text-gray-900 text-sm rounded-[2px] focus:ring-primary focus:border-primary w-full px-[10px] py-[8px]">
-                                        <option defaultValue>Month</option>
-                                        <option value="january">january</option>
-                                        <option value="february">february</option>
+                                    <select
+                                        id="month"
+                                        onChange={(e) => setSelectedMonth(parseInt(e.target.value))}
+                                        className="bg-transparent border border-[#9C9C9C] text-gray-900 text-sm rounded-[2px] focus:ring-primary focus:border-primary w-full px-[10px] py-[8px]"
+                                    >
+                                        <option value="" disabled selected>Month</option>
+                                        {months.map((month, index) => (
+                                            <option key={index} value={index + 1}>{month}</option>
+                                        ))}
                                     </select>
-                                    <select id="day" className="bg-transparent border border-[#9C9C9C] text-gray-900 text-sm rounded-[2px] focus:ring-primary focus:border-primary w-full px-[10px] py-[8px]">
-                                        <option defaultValue>Day</option>
-                                        <option value="january">01</option>
-                                        <option value="february">12</option>
+                                    <select
+                                        id="day"
+                                        {...register("day")}
+                                        className="bg-transparent border border-[#9C9C9C] text-gray-900 text-sm rounded-[2px] focus:ring-primary focus:border-primary w-full px-[10px] py-[8px]"
+                                    >
+                                        <option value="" disabled selected>Day</option>
+                                        {days.map(day => (
+                                            <option key={day} value={day}>{day}</option>
+                                        ))}
                                     </select>
-                                    <select id="year" className="bg-transparent border border-[#9C9C9C] text-gray-900 text-sm rounded-[2px] focus:ring-primary focus:border-primary w-full px-[10px] py-[8px]">
-                                        <option defaultValue>Year</option>
-                                        <option value="january">1998</option>
-                                        <option value="february">1999</option>
+                                    <select
+                                        id="year"
+                                        onChange={(e) => setSelectedYear(parseInt(e.target.value))}
+                                        className="bg-transparent border border-[#9C9C9C] text-gray-900 text-sm rounded-[2px] focus:ring-primary focus:border-primary w-full px-[10px] py-[8px]"
+                                    >
+                                        <option value="" disabled selected>Year</option>
+                                        {years.map(year => (
+                                            <option key={year} value={year}>{year}</option>
+                                        ))}
                                     </select>
                                 </div>
                             </div>
                             <div>
-                                <div>
-                                    <label for="gender" className="block mb-[6px] text-sm font-normal text-[#434343]">Gender
-                                    </label>
-                                    <select id="month" className="bg-transparent border border-[#9C9C9C] text-gray-900 text-sm rounded-[2px] focus:ring-primary focus:border-primary w-full px-[10px] py-[8px]">
-                                        <option defaultValue>Gender</option>
-                                        <option value="january">Male</option>
-                                        <option value="february">Female</option>
-                                    </select>
-                                </div>
+                                <label htmlFor="gender" className="block mb-[6px] text-sm font-normal text-[#434343]">Gender</label>
+                                <select
+                                    id="gender"
+                                    {...register("gender")}
+                                    className="bg-transparent border border-[#9C9C9C] text-gray-900 text-sm rounded-[2px] focus:ring-primary focus:border-primary w-full px-[10px] py-[8px]"
+                                >
+                                    <option value="" disabled selected>Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
                             </div>
                         </div>
                     </div>
