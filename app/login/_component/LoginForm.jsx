@@ -49,17 +49,17 @@ const LoginForm = () => {
                                 </label>
                                 <div className="flex items-center gap-[5px]">
                                     <select id="month" className="bg-transparent border border-[#9C9C9C] text-gray-900 text-sm rounded-[2px] focus:ring-primary focus:border-primary w-full px-[10px] py-[8px]">
-                                        <option selected>Month</option>
+                                        <option defaultValue>Month</option>
                                         <option value="january">january</option>
                                         <option value="february">february</option>
                                     </select>
                                     <select id="day" className="bg-transparent border border-[#9C9C9C] text-gray-900 text-sm rounded-[2px] focus:ring-primary focus:border-primary w-full px-[10px] py-[8px]">
-                                        <option selected>Day</option>
+                                        <option defaultValue>Day</option>
                                         <option value="january">01</option>
                                         <option value="february">12</option>
                                     </select>
                                     <select id="year" className="bg-transparent border border-[#9C9C9C] text-gray-900 text-sm rounded-[2px] focus:ring-primary focus:border-primary w-full px-[10px] py-[8px]">
-                                        <option selected>Year</option>
+                                        <option defaultValue>Year</option>
                                         <option value="january">1998</option>
                                         <option value="february">1999</option>
                                     </select>
@@ -70,7 +70,7 @@ const LoginForm = () => {
                                     <label for="gender" className="block mb-[6px] text-sm font-normal text-[#434343]">Gender
                                     </label>
                                     <select id="month" className="bg-transparent border border-[#9C9C9C] text-gray-900 text-sm rounded-[2px] focus:ring-primary focus:border-primary w-full px-[10px] py-[8px]">
-                                        <option selected>Gender</option>
+                                        <option defaultValue>Gender</option>
                                         <option value="january">Male</option>
                                         <option value="february">Female</option>
                                     </select>
