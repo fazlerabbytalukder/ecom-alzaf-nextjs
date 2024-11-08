@@ -13,8 +13,10 @@ import Category from './Category';
 const HeroSection = () => {
     return (
         <div>
-            <div className="container mx-auto px-4">
-                <Category />
+            <div className="hidden lg:block">
+                <div className="container mx-auto px-4">
+                    <Category />
+                </div>
             </div>
             <Swiper
                 spaceBetween={0}

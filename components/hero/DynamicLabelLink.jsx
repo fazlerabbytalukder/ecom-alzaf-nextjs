@@ -17,7 +17,6 @@ const DynamicLabelLink = ({ leftOffset, childrens }) => {
                     <div key={child.id} className="relative">
                         <div className="flex items-center justify-between">
                             {child.childrens ? (
-                                // If this child has further children, display it as a button with a click handler
                                 <button
                                     onClick={() => handleChildClick(child.id)}
                                     className="text-xs text-secondary flex items-center justify-between w-full"
@@ -28,7 +27,6 @@ const DynamicLabelLink = ({ leftOffset, childrens }) => {
                                     </div>
                                 </button>
                             ) : (
-                                // Otherwise, render it as a simple link
                                 <Link href={child?.link || "#"} className="text-xs text-secondary flex items-center justify-between w-full">
                                     <div className='flex items-center gap-2'>
                                         <Image width={10} height={10} src={child?.icon} alt="icon" />
@@ -45,8 +43,6 @@ const DynamicLabelLink = ({ leftOffset, childrens }) => {
                                 </div>
                             )}
                         </div>
-
-                        {/* Render DynamicLabelLink for nested children if active */}
                         {activeChild === child.id && child.childrens && (
                             <DynamicLabelTwoLink
                                 childrens={child.childrens}
